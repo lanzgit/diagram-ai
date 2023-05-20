@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import OpenAIKit
 
 @main
 struct DiagramAIApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SplashView(vm: ContentViewModel(api: ChatGPTAPI(apiKey: Constants.openAIKey)))
         }
     }
 }

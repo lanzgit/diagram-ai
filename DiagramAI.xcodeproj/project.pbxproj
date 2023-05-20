@@ -7,18 +7,53 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C308EAF02A0741AA00DF39FD /* PlantUMLText.swift in Sources */ = {isa = PBXBuildFile; fileRef = C308EAEF2A0741AA00DF39FD /* PlantUMLText.swift */; };
+		C308EAF22A0750F900DF39FD /* PlantUMLEncode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C308EAF12A0750F900DF39FD /* PlantUMLEncode.swift */; };
+		C308EB022A0771ED00DF39FD /* OpenAIKit in Frameworks */ = {isa = PBXBuildFile; productRef = C308EB012A0771ED00DF39FD /* OpenAIKit */; };
+		C3B1DC862A0D3156009C4C1A /* DiagramView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B1DC852A0D3156009C4C1A /* DiagramView.swift */; };
+		C3B1DC892A0D4BEA009C4C1A /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B1DC882A0D4BEA009C4C1A /* NavigationBar.swift */; };
 		C3B588FC2A070A9F0088F043 /* DiagramAIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B588FB2A070A9F0088F043 /* DiagramAIApp.swift */; };
 		C3B588FE2A070A9F0088F043 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B588FD2A070A9F0088F043 /* ContentView.swift */; };
 		C3B589002A070AA00088F043 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3B588FF2A070AA00088F043 /* Assets.xcassets */; };
 		C3B589032A070AA00088F043 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3B589022A070AA00088F043 /* Preview Assets.xcassets */; };
+		C3B81DAC2A0C462D00A08028 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B81DAB2A0C462D00A08028 /* SplashView.swift */; };
+		C3B81DAE2A0C510100A08028 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B81DAD2A0C510100A08028 /* UIColor.swift */; };
+		C3B81DB12A0C631D00A08028 /* UIColorHexSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C3B81DB02A0C631D00A08028 /* UIColorHexSwift */; };
+		C3C3E59C2A081D0D00F4A2C7 /* ChatGPTSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C3C3E59B2A081D0D00F4A2C7 /* ChatGPTSwift */; };
+		C3C3E5A02A081E7E00F4A2C7 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C3E59F2A081E7E00F4A2C7 /* ContentViewModel.swift */; };
+		C3C3E5A22A081F5100F4A2C7 /* ChatGPTAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C3E5A12A081F5100F4A2C7 /* ChatGPTAPI.swift */; };
+		C3C3E5A42A082CCE00F4A2C7 /* ChatGPTAPIModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C3E5A32A082CCE00F4A2C7 /* ChatGPTAPIModels.swift */; };
+		C3C3E5A62A08635300F4A2C7 /* MessageRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C3E5A52A08635300F4A2C7 /* MessageRowView.swift */; };
+		C3C3E5A82A08645300F4A2C7 /* MessageRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C3E5A72A08645300F4A2C7 /* MessageRow.swift */; };
+		C3C3E5AA2A0864A900F4A2C7 /* ParserResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C3E5A92A0864A900F4A2C7 /* ParserResult.swift */; };
+		C3C3E5B02A099F4700F4A2C7 /* Markdownosaur in Frameworks */ = {isa = PBXBuildFile; productRef = C3C3E5AF2A099F4700F4A2C7 /* Markdownosaur */; };
+		C3C3E5B32A09B5D200F4A2C7 /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C3E5B22A09B5D200F4A2C7 /* ChatMessage.swift */; };
+		C3C3E5B52A09D9AA00F4A2C7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C3E5B42A09D9AA00F4A2C7 /* Constants.swift */; };
+		C3C3E5B72A09EB4200F4A2C7 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C3E5B62A09EB4200F4A2C7 /* LoadingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C308EAEF2A0741AA00DF39FD /* PlantUMLText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantUMLText.swift; sourceTree = "<group>"; };
+		C308EAF12A0750F900DF39FD /* PlantUMLEncode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantUMLEncode.swift; sourceTree = "<group>"; };
+		C3B1DC852A0D3156009C4C1A /* DiagramView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagramView.swift; sourceTree = "<group>"; };
+		C3B1DC882A0D4BEA009C4C1A /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		C3B588F82A070A9F0088F043 /* DiagramAI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiagramAI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3B588FB2A070A9F0088F043 /* DiagramAIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagramAIApp.swift; sourceTree = "<group>"; };
 		C3B588FD2A070A9F0088F043 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C3B588FF2A070AA00088F043 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C3B589022A070AA00088F043 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C3B589092A0718560088F043 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		C3B81DAB2A0C462D00A08028 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		C3B81DAD2A0C510100A08028 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		C3C3E59F2A081E7E00F4A2C7 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		C3C3E5A12A081F5100F4A2C7 /* ChatGPTAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPTAPI.swift; sourceTree = "<group>"; };
+		C3C3E5A32A082CCE00F4A2C7 /* ChatGPTAPIModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPTAPIModels.swift; sourceTree = "<group>"; };
+		C3C3E5A52A08635300F4A2C7 /* MessageRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageRowView.swift; sourceTree = "<group>"; };
+		C3C3E5A72A08645300F4A2C7 /* MessageRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageRow.swift; sourceTree = "<group>"; };
+		C3C3E5A92A0864A900F4A2C7 /* ParserResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserResult.swift; sourceTree = "<group>"; };
+		C3C3E5B22A09B5D200F4A2C7 /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
+		C3C3E5B42A09D9AA00F4A2C7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C3C3E5B62A09EB4200F4A2C7 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,12 +61,71 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3C3E5B02A099F4700F4A2C7 /* Markdownosaur in Frameworks */,
+				C3C3E59C2A081D0D00F4A2C7 /* ChatGPTSwift in Frameworks */,
+				C3B81DB12A0C631D00A08028 /* UIColorHexSwift in Frameworks */,
+				C308EB022A0771ED00DF39FD /* OpenAIKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C308EAF32A075E7400DF39FD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C3B588FD2A070A9F0088F043 /* ContentView.swift */,
+				C3C3E5A52A08635300F4A2C7 /* MessageRowView.swift */,
+				C3C3E5B62A09EB4200F4A2C7 /* LoadingView.swift */,
+				C3B81DAB2A0C462D00A08028 /* SplashView.swift */,
+				C3B1DC852A0D3156009C4C1A /* DiagramView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C308EAF42A075E9D00DF39FD /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				C3C3E59F2A081E7E00F4A2C7 /* ContentViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		C308EAF52A075EDD00DF39FD /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		C308EAF62A075F0500DF39FD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C3C3E5A32A082CCE00F4A2C7 /* ChatGPTAPIModels.swift */,
+				C3C3E5B22A09B5D200F4A2C7 /* ChatMessage.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C308EAFA2A0768AB00DF39FD /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				C308EAF62A075F0500DF39FD /* Models */,
+				C3C3E5A92A0864A900F4A2C7 /* ParserResult.swift */,
+				C3C3E5A72A08645300F4A2C7 /* MessageRow.swift */,
+				C308EAF12A0750F900DF39FD /* PlantUMLEncode.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		C3B1DC872A0D4BB8009C4C1A /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				C3B1DC882A0D4BEA009C4C1A /* NavigationBar.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		C3B588EF2A070A9F0088F043 = {
 			isa = PBXGroup;
 			children = (
@@ -51,10 +145,17 @@
 		C3B588FA2A070A9F0088F043 /* DiagramAI */ = {
 			isa = PBXGroup;
 			children = (
+				C3B1DC872A0D4BB8009C4C1A /* Components */,
+				C3C3E5B12A09B57E00F4A2C7 /* Services */,
+				C308EAFA2A0768AB00DF39FD /* Domain */,
+				C308EAF52A075EDD00DF39FD /* Repositories */,
+				C308EAF42A075E9D00DF39FD /* ViewModels */,
+				C308EAF32A075E7400DF39FD /* Views */,
+				C3B589092A0718560088F043 /* Info.plist */,
 				C3B588FB2A070A9F0088F043 /* DiagramAIApp.swift */,
-				C3B588FD2A070A9F0088F043 /* ContentView.swift */,
 				C3B588FF2A070AA00088F043 /* Assets.xcassets */,
 				C3B589012A070AA00088F043 /* Preview Content */,
+				C308EAEF2A0741AA00DF39FD /* PlantUMLText.swift */,
 			);
 			path = DiagramAI;
 			sourceTree = "<group>";
@@ -65,6 +166,16 @@
 				C3B589022A070AA00088F043 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C3C3E5B12A09B57E00F4A2C7 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C3C3E5A12A081F5100F4A2C7 /* ChatGPTAPI.swift */,
+				C3C3E5B42A09D9AA00F4A2C7 /* Constants.swift */,
+				C3B81DAD2A0C510100A08028 /* UIColor.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +194,12 @@
 			dependencies = (
 			);
 			name = DiagramAI;
+			packageProductDependencies = (
+				C308EB012A0771ED00DF39FD /* OpenAIKit */,
+				C3C3E59B2A081D0D00F4A2C7 /* ChatGPTSwift */,
+				C3C3E5AF2A099F4700F4A2C7 /* Markdownosaur */,
+				C3B81DB02A0C631D00A08028 /* UIColorHexSwift */,
+			);
 			productName = DiagramAI;
 			productReference = C3B588F82A070A9F0088F043 /* DiagramAI.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +228,12 @@
 				Base,
 			);
 			mainGroup = C3B588EF2A070A9F0088F043;
+			packageReferences = (
+				C308EB002A0771ED00DF39FD /* XCRemoteSwiftPackageReference "openai-kit" */,
+				C3C3E59A2A081D0D00F4A2C7 /* XCRemoteSwiftPackageReference "ChatGPTSwift" */,
+				C3C3E5AE2A099F4700F4A2C7 /* XCRemoteSwiftPackageReference "Markdownosaur" */,
+				C3B81DAF2A0C631D00A08028 /* XCRemoteSwiftPackageReference "UIColor-Hex-Swift" */,
+			);
 			productRefGroup = C3B588F92A070A9F0088F043 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -137,8 +260,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3C3E5A62A08635300F4A2C7 /* MessageRowView.swift in Sources */,
+				C3C3E5A02A081E7E00F4A2C7 /* ContentViewModel.swift in Sources */,
+				C3B81DAC2A0C462D00A08028 /* SplashView.swift in Sources */,
+				C3C3E5AA2A0864A900F4A2C7 /* ParserResult.swift in Sources */,
 				C3B588FE2A070A9F0088F043 /* ContentView.swift in Sources */,
+				C3B1DC892A0D4BEA009C4C1A /* NavigationBar.swift in Sources */,
+				C3B1DC862A0D3156009C4C1A /* DiagramView.swift in Sources */,
+				C3B81DAE2A0C510100A08028 /* UIColor.swift in Sources */,
+				C3C3E5A22A081F5100F4A2C7 /* ChatGPTAPI.swift in Sources */,
+				C3C3E5B72A09EB4200F4A2C7 /* LoadingView.swift in Sources */,
+				C3C3E5A82A08645300F4A2C7 /* MessageRow.swift in Sources */,
 				C3B588FC2A070A9F0088F043 /* DiagramAIApp.swift in Sources */,
+				C3C3E5B52A09D9AA00F4A2C7 /* Constants.swift in Sources */,
+				C3C3E5A42A082CCE00F4A2C7 /* ChatGPTAPIModels.swift in Sources */,
+				C3C3E5B32A09B5D200F4A2C7 /* ChatMessage.swift in Sources */,
+				C308EAF22A0750F900DF39FD /* PlantUMLEncode.swift in Sources */,
+				C308EAF02A0741AA00DF39FD /* PlantUMLText.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +408,7 @@
 				DEVELOPMENT_TEAM = GAH66N4UJ4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DiagramAI/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -280,6 +419,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				NEW_SETTING = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vvianna.DiagramAI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -299,6 +439,7 @@
 				DEVELOPMENT_TEAM = GAH66N4UJ4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DiagramAI/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -309,6 +450,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				NEW_SETTING = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vvianna.DiagramAI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -339,6 +481,64 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C308EB002A0771ED00DF39FD /* XCRemoteSwiftPackageReference "openai-kit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dylanshine/openai-kit";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		C3B81DAF2A0C631D00A08028 /* XCRemoteSwiftPackageReference "UIColor-Hex-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/yeahdongcn/UIColor-Hex-Swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		C3C3E59A2A081D0D00F4A2C7 /* XCRemoteSwiftPackageReference "ChatGPTSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alfianlosari/ChatGPTSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		C3C3E5AE2A099F4700F4A2C7 /* XCRemoteSwiftPackageReference "Markdownosaur" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/christianselig/Markdownosaur";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C308EB012A0771ED00DF39FD /* OpenAIKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C308EB002A0771ED00DF39FD /* XCRemoteSwiftPackageReference "openai-kit" */;
+			productName = OpenAIKit;
+		};
+		C3B81DB02A0C631D00A08028 /* UIColorHexSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C3B81DAF2A0C631D00A08028 /* XCRemoteSwiftPackageReference "UIColor-Hex-Swift" */;
+			productName = UIColorHexSwift;
+		};
+		C3C3E59B2A081D0D00F4A2C7 /* ChatGPTSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C3C3E59A2A081D0D00F4A2C7 /* XCRemoteSwiftPackageReference "ChatGPTSwift" */;
+			productName = ChatGPTSwift;
+		};
+		C3C3E5AF2A099F4700F4A2C7 /* Markdownosaur */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C3C3E5AE2A099F4700F4A2C7 /* XCRemoteSwiftPackageReference "Markdownosaur" */;
+			productName = Markdownosaur;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C3B588F02A070A9F0088F043 /* Project object */;
 }
