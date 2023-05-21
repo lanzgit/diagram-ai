@@ -52,16 +52,23 @@ struct ModalView: View {
             
             ZStack {
                 VStack {
-                    Text("funcionando")
+                    Text("Diagrama")
                         .font(.system(size: 30))
                         .bold()
-                    Text("Imagem")
-                        .font(.system(size: 20))
                     if let plantUMLImage = plantUMLImage {
                         Image(uiImage: plantUMLImage)
                             .resizable()
                             .cornerRadius(16)
+                        
+                        let img = Image(uiImage: plantUMLImage)
+                        ShareLink("Share", item: img, preview: SharePreview("photo", image: img))
+                            .bold()
+                            .padding()
+                            .background(.black)
+                            .foregroundColor(.white)
+                            .cornerRadius(32)
                     }
+                    Spacer()
                 }
                 .padding(.horizontal, 30)
             }
