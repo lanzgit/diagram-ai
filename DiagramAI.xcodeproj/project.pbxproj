@@ -30,6 +30,7 @@
 		C3C3E5B32A09B5D200F4A2C7 /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C3E5B22A09B5D200F4A2C7 /* ChatMessage.swift */; };
 		C3C3E5B52A09D9AA00F4A2C7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C3E5B42A09D9AA00F4A2C7 /* Constants.swift */; };
 		C3C3E5B72A09EB4200F4A2C7 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C3E5B62A09EB4200F4A2C7 /* LoadingView.swift */; };
+		C3FF15D52A198F1F00074A89 /* MenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FF15D42A198F1F00074A89 /* MenuItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		C3C3E5B22A09B5D200F4A2C7 /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
 		C3C3E5B42A09D9AA00F4A2C7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C3C3E5B62A09EB4200F4A2C7 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		C3FF15D42A198F1F00074A89 /* MenuItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 				C3C3E5B62A09EB4200F4A2C7 /* LoadingView.swift */,
 				C3B81DAB2A0C462D00A08028 /* SplashView.swift */,
 				C3B1DC852A0D3156009C4C1A /* DiagramView.swift */,
+				C3FF15D42A198F1F00074A89 /* MenuItemView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				C3C3E5A42A082CCE00F4A2C7 /* ChatGPTAPIModels.swift in Sources */,
 				C3C3E5B32A09B5D200F4A2C7 /* ChatMessage.swift in Sources */,
 				C308EAF22A0750F900DF39FD /* PlantUMLEncode.swift in Sources */,
+				C3FF15D52A198F1F00074A89 /* MenuItemView.swift in Sources */,
 				C308EAF02A0741AA00DF39FD /* PlantUMLText.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -23,7 +23,8 @@ struct ContentView: View {
     @State private var messageText: String = ""
     @State private var diagramType: DiagramType = .Usecase
     @State private var plantumlCode: String = ""
-    @State private var isNavigating: Bool = false
+    @State private var showTextField = false
+    
 
         
     var body: some View {
@@ -70,9 +71,13 @@ struct ContentView: View {
     
     func bottomView(image: String, proxy: ScrollViewProxy) -> some View {
         VStack {
+            Text("Escolha um tipo de diagrama")
+                .font(.system(size: 20))
+                .bold()
             HStack {
                 ForEach(DiagramType.allCases, id: \.self) { diagramType in
                     Button(diagramType.rawValue) {
+                        showTextField = true
                         print("Selected \(diagramType.rawValue)")
                         self.diagramType = diagramType
                         
@@ -89,52 +94,54 @@ struct ContentView: View {
                     .bold()
                 }
             }
-            HStack(alignment: .top, spacing: 8) {
-                if image.hasPrefix("http"), let url = URL(string: image) {
-                    AsyncImage(url: url) { image in
-                        image.resizable().frame(width: 25, height: 25)
-                    } placeholder: {
-                        ProgressView()
-                    }
-                } else {
-                    Image(image)
-                        .resizable()
-                        .frame(width: 50, height: 50)
-                        .cornerRadius(100)
-                }
-                TextField("Envie uma mensagem...", text: $vm.inputMessage, axis: .vertical)
-                    .padding()
-                    .background(.gray.opacity(0.2))
-                    .cornerRadius(16)
-                    .focused($isFieldFocussed)
-                    .disabled(vm.isInteractiveWithGPT)
-                
-                if vm.isInteractiveWithGPT {
-                    LoadingView().frame(width: 60, height: 30)
-                } else {
-                    Button {
-                        Task { @MainActor in
-                            isFieldFocussed = false
-                            scrollToBottom(proxy: proxy)
-                            
-                            //                      await vm.sendTapped()
-                            let code = await vm.sendCode(text: vm.inputMessage)
-                            generateDiagram(code: code ?? "algo aconteceu de errado")
-                            vm.inputMessage = ""
+            if showTextField {
+                HStack(alignment: .top, spacing: 8) {
+                    if image.hasPrefix("http"), let url = URL(string: image) {
+                        AsyncImage(url: url) { image in
+                            image.resizable().frame(width: 25, height: 25)
+                        } placeholder: {
+                            ProgressView()
                         }
-                    } label: {
-                        Image(systemName: "paperplane.circle.fill")
-                            .rotationEffect(.degrees(45))
-                            .font(.system(size: 50))
-                            .foregroundColor(.purple)
+                    } else {
+                        Image(image)
+                            .resizable()
+                            .frame(width: 50, height: 50)
+                            .cornerRadius(100)
                     }
-                    .disabled(vm.inputMessage
-                        .trimmingCharacters(in:
-                                .whitespacesAndNewlines).isEmpty)
+                    TextField("Envie uma mensagem...", text: $vm.inputMessage, axis: .vertical)
+                        .padding()
+                        .background(.gray.opacity(0.2))
+                        .cornerRadius(16)
+                        .focused($isFieldFocussed)
+                        .disabled(vm.isInteractiveWithGPT)
+                    
+                    if vm.isInteractiveWithGPT {
+                        LoadingView().frame(width: 60, height: 30)
+                    } else {
+                        Button {
+                            Task { @MainActor in
+                                isFieldFocussed = false
+                                scrollToBottom(proxy: proxy)
+                                
+                                //                      await vm.sendTapped()
+                                let code = await vm.sendCode(text: vm.inputMessage)
+                                generateDiagram(code: code ?? "algo aconteceu de errado")
+                                vm.inputMessage = ""
+                            }
+                        } label: {
+                            Image(systemName: "paperplane.circle.fill")
+                                .rotationEffect(.degrees(45))
+                                .font(.system(size: 50))
+                                .foregroundColor(.purple)
+                        }
+                        .disabled(vm.inputMessage
+                            .trimmingCharacters(in:
+                                    .whitespacesAndNewlines).isEmpty)
+                    }
                 }
+                .padding(.horizontal, 16)
+                .padding(.top, 12)
             }
-            .padding(.horizontal, 16)
-            .padding(.top, 12)
         }
     }
     

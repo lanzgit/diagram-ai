@@ -41,14 +41,17 @@ struct SplashView: View {
                     Spacer()
                     Text("powered by")
                         .foregroundColor(.white)
-                        .font(Font.custom("Menlo", size: 25))
+                        .font(Font.custom("Menlo", size: 15))
                         .bold()
                     HStack {
                         Image("openai")
                             .resizable()
-                            .frame(width: 70, height: 70)
+                            .frame(width: 40, height: 40)
                             .cornerRadius(80)
+                        
                         Image("plantumlLogo")
+                            .resizable()
+                            .frame(width: 40, height: 40)
                             .cornerRadius(80)
                     }
                 }
