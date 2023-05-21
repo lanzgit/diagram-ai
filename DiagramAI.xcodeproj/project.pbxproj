@@ -31,6 +31,7 @@
 		C3C3E5B52A09D9AA00F4A2C7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C3E5B42A09D9AA00F4A2C7 /* Constants.swift */; };
 		C3C3E5B72A09EB4200F4A2C7 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C3E5B62A09EB4200F4A2C7 /* LoadingView.swift */; };
 		C3FF15D52A198F1F00074A89 /* MenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FF15D42A198F1F00074A89 /* MenuItemView.swift */; };
+		C3FF15D72A19C36A00074A89 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FF15D62A19C36A00074A89 /* ModalView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		C3C3E5B42A09D9AA00F4A2C7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C3C3E5B62A09EB4200F4A2C7 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		C3FF15D42A198F1F00074A89 /* MenuItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemView.swift; sourceTree = "<group>"; };
+		C3FF15D62A19C36A00074A89 /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				C3B81DAB2A0C462D00A08028 /* SplashView.swift */,
 				C3B1DC852A0D3156009C4C1A /* DiagramView.swift */,
 				C3FF15D42A198F1F00074A89 /* MenuItemView.swift */,
+				C3FF15D62A19C36A00074A89 /* ModalView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				C3C3E5A22A081F5100F4A2C7 /* ChatGPTAPI.swift in Sources */,
 				C3C3E5B72A09EB4200F4A2C7 /* LoadingView.swift in Sources */,
 				C3C3E5A82A08645300F4A2C7 /* MessageRow.swift in Sources */,
+				C3FF15D72A19C36A00074A89 /* ModalView.swift in Sources */,
 				C3B588FC2A070A9F0088F043 /* DiagramAIApp.swift in Sources */,
 				C3C3E5B52A09D9AA00F4A2C7 /* Constants.swift in Sources */,
 				C3C3E5A42A082CCE00F4A2C7 /* ChatGPTAPIModels.swift in Sources */,

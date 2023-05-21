@@ -24,21 +24,23 @@ struct ContentView: View {
     @State private var diagramType: DiagramType = .Usecase
     @State private var plantumlCode: String = ""
     @State private var showTextField = false
-    
-
+    @State private var isActive = false
+    @State private var isShowingImage = false
         
     var body: some View {
-        VStack {
+        ZStack {
             if let diagramImage = diagramImage {
                 Image(uiImage: diagramImage)
                     .resizable()
                     .cornerRadius(16)
             }
             chatScrollView
+            ModalView(isShowingImage: $isShowingImage, plantUMLImage: $diagramImage)
+                .ignoresSafeArea()
         }
-        .padding()
         .background(colorScheme == .light ? .white : Color(red: 52/255, green: 53/255, blue: 65/255, opacity: 0.5))
     }
+    
     
     var chatScrollView: some View {
         ScrollViewReader { proxy in
@@ -59,7 +61,6 @@ struct ContentView: View {
                 }
                 Divider()
                 bottomView(image: "me", proxy: proxy)
-                Spacer()
             }
             .onChange(of: vm.messages.last?.responseText) { _ in
                 scrollToBottom(proxy: proxy)
@@ -70,77 +71,94 @@ struct ContentView: View {
     
     
     func bottomView(image: String, proxy: ScrollViewProxy) -> some View {
-        VStack {
-            Text("Escolha um tipo de diagrama")
-                .font(.system(size: 20))
+        ZStack {
+            ZStack {
+                MenuItem(icon: "figure.arms.open", background: .orange, foreground: .white, order: 1, isActive: isActive, name: "UseCase", action: {
+                    showTextField = true
+                    isActive = !isActive
+                    Task { @MainActor in
+                        isFieldFocussed = false
+                        scrollToBottom(proxy: proxy)
+                        await vm.sendBasePrompt(diagramType: "Use Case Diagram")
+                    }
+                })
+                .opacity(isActive ? 1 : 0)
+                MenuItem(icon: "flowchart.fill", background: .cyan, foreground: .white, order: 3, isActive: isActive, name: "Class", action: {
+                    showTextField = true
+                    isActive = !isActive
+                    Task { @MainActor in
+                        isFieldFocussed = false
+                        scrollToBottom(proxy: proxy)
+                        await vm.sendBasePrompt(diagramType: "Class Diagram")
+                    }
+                })
+                .opacity(isActive ? 1 : 0)
+                MenuItem(icon: "figure.walk", background: .indigo, foreground: .white, order: 5, isActive: isActive, name: "Sequence", action: {
+                    showTextField = true
+                    isActive = !isActive
+                    Task { @MainActor in
+                        isFieldFocussed = false
+                        scrollToBottom(proxy: proxy)
+                        await vm.sendBasePrompt(diagramType: "Sequence Diagram")
+                    }
+                })
+                .opacity(isActive ? 1 : 0)
+                MenuItem(icon: "plus", background: Color.purple, foreground: Color.white, size: 24, weight: .bold, name: "", action: {
+                    isActive = !isActive
+                })
                 .bold()
-            HStack {
-                ForEach(DiagramType.allCases, id: \.self) { diagramType in
-                    Button(diagramType.rawValue) {
-                        showTextField = true
-                        print("Selected \(diagramType.rawValue)")
-                        self.diagramType = diagramType
-                        
-                        Task { @MainActor in
-                            isFieldFocussed = false
-                            scrollToBottom(proxy: proxy)
-                            await vm.sendBasePrompt(diagramType: diagramType.diagramName)
-                        }
-                    }
-                    .padding()
-                    .background(Color(.purple))
-                    .foregroundColor(.white)
-                    .clipShape(Capsule())
-                    .bold()
-                }
+                .rotationEffect(isActive ? .degrees(-225) : .zero)
+                .animation(.spring())
             }
-            if showTextField {
-                HStack(alignment: .top, spacing: 8) {
-                    if image.hasPrefix("http"), let url = URL(string: image) {
-                        AsyncImage(url: url) { image in
-                            image.resizable().frame(width: 25, height: 25)
-                        } placeholder: {
-                            ProgressView()
-                        }
-                    } else {
-                        Image(image)
-                            .resizable()
-                            .frame(width: 50, height: 50)
-                            .cornerRadius(100)
-                    }
-                    TextField("Envie uma mensagem...", text: $vm.inputMessage, axis: .vertical)
-                        .padding()
-                        .background(.gray.opacity(0.2))
-                        .cornerRadius(16)
-                        .focused($isFieldFocussed)
-                        .disabled(vm.isInteractiveWithGPT)
-                    
-                    if vm.isInteractiveWithGPT {
-                        LoadingView().frame(width: 60, height: 30)
-                    } else {
-                        Button {
-                            Task { @MainActor in
-                                isFieldFocussed = false
-                                scrollToBottom(proxy: proxy)
-                                
-                                //                      await vm.sendTapped()
-                                let code = await vm.sendCode(text: vm.inputMessage)
-                                generateDiagram(code: code ?? "algo aconteceu de errado")
-                                vm.inputMessage = ""
+            .padding(.bottom, 40)
+            
+                if showTextField {
+                    HStack(alignment: .bottom, spacing: 8) {
+                        if image.hasPrefix("http"), let url = URL(string: image) {
+                            AsyncImage(url: url) { image in
+                                image.resizable().frame(width: 25, height: 25)
+                            } placeholder: {
+                                ProgressView()
                             }
-                        } label: {
-                            Image(systemName: "paperplane.circle.fill")
-                                .rotationEffect(.degrees(45))
-                                .font(.system(size: 50))
-                                .foregroundColor(.purple)
+                        } else {
+                            Image(image)
+                                .resizable()
+                                .frame(width: 50, height: 50)
+                                .cornerRadius(100)
                         }
-                        .disabled(vm.inputMessage
-                            .trimmingCharacters(in:
-                                    .whitespacesAndNewlines).isEmpty)
+                        TextField("Envie uma mensagem...", text: $vm.inputMessage, axis: .vertical)
+                            .padding()
+                            .background(.gray.opacity(0.2))
+                            .cornerRadius(16)
+                            .focused($isFieldFocussed)
+                            .disabled(vm.isInteractiveWithGPT)
+                        
+                        if vm.isInteractiveWithGPT {
+                            LoadingView().frame(width: 60, height: 30)
+                        } else {
+                            Button {
+                                Task { @MainActor in
+                                    isFieldFocussed = false
+                                    scrollToBottom(proxy: proxy)
+                                    
+                                    //                      await vm.sendTapped()
+                                    let code = await vm.sendCode(text: vm.inputMessage)
+                                    generateDiagram(code: code ?? "algo aconteceu de errado")
+                                    vm.inputMessage = ""
+                                }
+                            } label: {
+                                Image(systemName: "paperplane.circle.fill")
+                                    .rotationEffect(.degrees(45))
+                                    .font(.system(size: 50))
+                                    .foregroundColor(.purple)
+                            }
+                            .disabled(vm.inputMessage
+                                .trimmingCharacters(in:
+                                        .whitespacesAndNewlines).isEmpty)
+                        }
                     }
-                }
-                .padding(.horizontal, 16)
-                .padding(.top, 12)
+                    .padding(.top, 80)
+                    .padding()
             }
         }
     }
@@ -175,6 +193,7 @@ struct ContentView: View {
             if let data = data, let image = UIImage(data: data) {
                DispatchQueue.main.async {
                    self.diagramImage = image
+                   isShowingImage = true
                }
            } else {
                print("Error generating diagram: \(error?.localizedDescription ?? "Unknown error")")

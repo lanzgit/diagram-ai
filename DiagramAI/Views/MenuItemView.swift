@@ -12,23 +12,28 @@ struct MenuItem: View {
     let icon: String
     var background: Color = Color.white
     var foreground: Color = Color.blue
-    var size: CGFloat = 26
+    var size: CGFloat = 22
     var weight: Font.Weight = .regular
     var order: Int = 0
     var isActive: Bool = true
     var name: String
+    var action: (() -> Void)?
     
     var body: some View {
         VStack {
-            Image(systemName: icon)
-                .font(Font.system(size: size, weight: weight))
-                .frame(width: 60, height: 60)
-                .background(background)
-                .foregroundColor(foreground)
-                .cornerRadius(44)
-                .rotationEffect(isActive ? .degrees(1080) : .zero)
-                .animation(.spring(response: 0.4, dampingFraction: 0.75))
-                .offset(x: isActive ? positions[order][0] : 0, y: isActive ? positions[order][1] : 0)
+            Button(action: {
+                action?()
+            }) {
+                Image(systemName: icon)
+                    .font(Font.system(size: size, weight: weight))
+                    .frame(width: 56, height: 56)
+                    .background(background)
+                    .foregroundColor(foreground)
+                    .cornerRadius(44)
+            }
+            .rotationEffect(isActive ? .degrees(1080) : .zero)
+            .animation(.spring(response: 0.4, dampingFraction: 0.75))
+            .offset(x: isActive ? positions[order][0] : 0, y: isActive ? positions[order][1] : 0)
            Text(name)
                 .opacity(isActive ? 1 : 0)
                 .foregroundColor(.black)
@@ -55,20 +60,24 @@ struct MenuItemView: View {
                 Spacer()
                 ZStack {
                     
-                    MenuItem(icon: "figure.arms.open", background: .orange, foreground: .white, order: 1, isActive: isActive, name: "UseCase")
+                    MenuItem(icon: "figure.arms.open", background: .orange, foreground: .white, order: 1, isActive: isActive, name: "UseCase", action: {
+                        
+                    })
                         .opacity(isActive ? 1 : 0)
-                    MenuItem(icon: "flowchart.fill", background: .cyan, foreground: .white, order: 3, isActive: isActive, name: "Class")
+                    MenuItem(icon: "flowchart.fill", background: .cyan, foreground: .white, order: 3, isActive: isActive, name: "Class", action: {
+                        
+                    })
                         .opacity(isActive ? 1 : 0)
-                    MenuItem(icon: "figure.walk", background: .indigo, foreground: .white, order: 5, isActive: isActive, name: "Sequence")
+                    MenuItem(icon: "figure.walk", background: .indigo, foreground: .white, order: 5, isActive: isActive, name: "Sequence", action: {
+                        
+                    })
                         .opacity(isActive ? 1 : 0)
-                    MenuItem(icon: "plus", background: Color.purple, foreground: Color.white, size: 24, weight: .bold, name: "")
+                    MenuItem(icon: "plus", background: Color.purple, foreground: Color.white, size: 24, weight: .bold, name: "", action: {
+                        isActive = !isActive
+                    })
                         .bold()
                         .rotationEffect(isActive ? .degrees(-225) : .zero)
                         .animation(.spring())
-                        .onTapGesture(count: 1) {
-                            print("tapped")
-                            isActive = !isActive
-                        }
                 }
             }.padding()
         }
