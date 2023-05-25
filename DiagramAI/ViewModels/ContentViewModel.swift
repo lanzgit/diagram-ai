@@ -92,6 +92,7 @@ class ContentViewModel: ObservableObject {
             codeBlock: "",
             responseError: nil)
         
+        self.messages.append(messageRow)
         do {
             let stream = try await api.sendMessageStream(text: text)
             for try await text in stream {
@@ -101,6 +102,7 @@ class ContentViewModel: ObservableObject {
                 if let responseText = messageRow.response?.text {
                     messageRow.codeBlock = extractCodeBlock(response: responseText)
                 }
+                self.messages[self.messages.count - 1] = messageRow
             }
         } catch {
             messageRow.responseError = error.localizedDescription

@@ -15,7 +15,9 @@ struct ContentView: View {
     @FocusState var isFieldFocussed: Bool
     @ObservedObject var vm: ContentViewModel
     
-    @State private var currentTab: Tab = .Home
+    @State private var cards: Array<Card> = [Card.openaiCard, Card.plantumlCard, Card.tipos]
+    @State private var isShowingCards = true
+    
     @State private var plantUMLCode: String = ""
     @State private var diagramImage: UIImage? = nil
     @State private var encodeUML = PlantUMLEncode()
@@ -26,19 +28,24 @@ struct ContentView: View {
     @State private var showTextField = false
     @State private var isActive = false
     @State private var isShowingImage = false
-        
+    
     var body: some View {
-        ZStack {
+        ZStack(alignment: .top) {
             if let diagramImage = diagramImage {
                 Image(uiImage: diagramImage)
                     .resizable()
                     .cornerRadius(16)
             }
+            if isShowingCards {
+                caroucel()
+                    .zIndex(1)
+            }
             chatScrollView
             ModalView(isShowingImage: $isShowingImage, plantUMLImage: $diagramImage)
                 .ignoresSafeArea()
         }
-        .background(colorScheme == .light ? .white : Color(red: 52/255, green: 53/255, blue: 65/255, opacity: 0.5))
+        .navigationTitle("diagramAI")
+        .environment(\.colorScheme, .dark)
     }
     
     
@@ -61,104 +68,111 @@ struct ContentView: View {
                 }
                 Divider()
                 bottomView(image: "me", proxy: proxy)
+                    .background(showTextField ? Color("menuBack").ignoresSafeArea() : nil)
             }
+            .background(Color("myBackground"))
             .onChange(of: vm.messages.last?.responseText) { _ in
                 scrollToBottom(proxy: proxy)
             }
         }
-        .background(colorScheme == .light ? .white : Color(red: 52/255, green: 53/255, blue: 65/255, opacity: 0.5))
     }
     
     
     func bottomView(image: String, proxy: ScrollViewProxy) -> some View {
         ZStack {
             ZStack {
-                MenuItem(icon: "figure.arms.open", background: .orange, foreground: .white, order: 1, isActive: isActive, name: "UseCase", action: {
+                MenuItem(icon: "figure.arms.open", background: Color("myOrange"), foreground: .white, order: 1, isActive: isActive, name: "UseCase", action: {
                     showTextField = true
                     isActive = !isActive
                     Task { @MainActor in
                         isFieldFocussed = false
+                        isShowingCards = false
                         scrollToBottom(proxy: proxy)
                         await vm.sendBasePrompt(diagramType: "Use Case Diagram")
                     }
                 })
                 .opacity(isActive ? 1 : 0)
-                MenuItem(icon: "flowchart.fill", background: .cyan, foreground: .white, order: 3, isActive: isActive, name: "Class", action: {
+                MenuItem(icon: "flowchart.fill", background: Color("myPink"), foreground: .white, order: 3, isActive: isActive, name: "Class", action: {
                     showTextField = true
                     isActive = !isActive
                     Task { @MainActor in
                         isFieldFocussed = false
+                        isShowingCards = false
                         scrollToBottom(proxy: proxy)
                         await vm.sendBasePrompt(diagramType: "Class Diagram")
                     }
                 })
                 .opacity(isActive ? 1 : 0)
-                MenuItem(icon: "figure.walk", background: .indigo, foreground: .white, order: 5, isActive: isActive, name: "Sequence", action: {
+                MenuItem(icon: "figure.walk", background: Color("anotherGreen"), foreground: .white, order: 5, isActive: isActive, name: "Sequence", action: {
                     showTextField = true
                     isActive = !isActive
                     Task { @MainActor in
                         isFieldFocussed = false
+                        isShowingCards = false
                         scrollToBottom(proxy: proxy)
                         await vm.sendBasePrompt(diagramType: "Sequence Diagram")
                     }
                 })
                 .opacity(isActive ? 1 : 0)
-                MenuItem(icon: "plus", background: Color.purple, foreground: Color.white, size: 24, weight: .bold, name: "", action: {
+                MenuItem(icon: "plus", background: Color("myPurple"), foreground: Color.white, size: 24, weight: .bold, name: "", action: {
                     isActive = !isActive
                 })
                 .bold()
                 .rotationEffect(isActive ? .degrees(-225) : .zero)
                 .animation(.spring())
+                .offset(y: -40)
             }
-            .padding(.bottom, 40)
+//            .padding(.bottom, 40)
             
-                if showTextField {
-                    HStack(alignment: .bottom, spacing: 8) {
-                        if image.hasPrefix("http"), let url = URL(string: image) {
-                            AsyncImage(url: url) { image in
-                                image.resizable().frame(width: 25, height: 25)
-                            } placeholder: {
-                                ProgressView()
-                            }
-                        } else {
-                            Image(image)
-                                .resizable()
-                                .frame(width: 50, height: 50)
-                                .cornerRadius(100)
+            if showTextField {
+                HStack(alignment: .bottom, spacing: 8) {
+                    if image.hasPrefix("http"), let url = URL(string: image) {
+                        AsyncImage(url: url) { image in
+                            image.resizable().frame(width: 25, height: 25)
+                        } placeholder: {
+                            ProgressView()
                         }
-                        TextField("Envie uma mensagem...", text: $vm.inputMessage, axis: .vertical)
-                            .padding()
-                            .background(.gray.opacity(0.2))
-                            .cornerRadius(16)
-                            .focused($isFieldFocussed)
-                            .disabled(vm.isInteractiveWithGPT)
-                        
-                        if vm.isInteractiveWithGPT {
-                            LoadingView().frame(width: 60, height: 30)
-                        } else {
-                            Button {
-                                Task { @MainActor in
-                                    isFieldFocussed = false
-                                    scrollToBottom(proxy: proxy)
-                                    
-                                    //                      await vm.sendTapped()
-                                    let code = await vm.sendCode(text: vm.inputMessage)
-                                    generateDiagram(code: code ?? "algo aconteceu de errado")
-                                    vm.inputMessage = ""
-                                }
-                            } label: {
-                                Image(systemName: "paperplane.circle.fill")
-                                    .rotationEffect(.degrees(45))
-                                    .font(.system(size: 50))
-                                    .foregroundColor(.purple)
-                            }
-                            .disabled(vm.inputMessage
-                                .trimmingCharacters(in:
-                                        .whitespacesAndNewlines).isEmpty)
-                        }
+                    } else {
+                        Image(image)
+                            .resizable()
+                            .frame(width: 50, height: 50)
+                            .cornerRadius(100)
                     }
-                    .padding(.top, 80)
-                    .padding()
+                    TextField("Envie uma mensagem...", text: $vm.inputMessage, axis: .vertical)
+                        .padding()
+                        .accentColor(Color("myPurple"))
+                        .foregroundColor(.white)
+                        .background(.gray.opacity(0.2))
+                        .cornerRadius(16)
+                        .focused($isFieldFocussed)
+                        .disabled(vm.isInteractiveWithGPT)
+                    
+                    if vm.isInteractiveWithGPT {
+                        LoadingView().frame(width: 60, height: 30)
+                    } else {
+                        Button {
+                            Task { @MainActor in
+                                isFieldFocussed = false
+                                scrollToBottom(proxy: proxy)
+                                
+                                //                      await vm.sendTapped()
+                                let code = await vm.sendCode(text: vm.inputMessage)
+                                generateDiagram(code: code ?? "algo aconteceu de errado")
+                                vm.inputMessage = ""
+                            }
+                        } label: {
+                            Image(systemName: "paperplane.circle.fill")
+                                .rotationEffect(.degrees(45))
+                                .font(.system(size: 50))
+                                .foregroundColor(Color("myPurple"))
+                        }
+                        .disabled(vm.inputMessage
+                            .trimmingCharacters(in:
+                                    .whitespacesAndNewlines).isEmpty)
+                    }
+                }
+//                .padding(.top, 80)
+                .padding()
             }
         }
     }
@@ -167,7 +181,7 @@ struct ContentView: View {
         HStack {
             if message.sender == .me { Spacer() }
             Text(message.content)
-                .foregroundColor(message.sender == .me ? .white : .black)
+                .foregroundColor(message.sender == .me ? .white : .white)
                 .padding()
                 .background(message.sender == .me ? .blue : .gray.opacity(0.1))
                 .cornerRadius(16)
@@ -178,6 +192,22 @@ struct ContentView: View {
     private func scrollToBottom(proxy: ScrollViewProxy) {
         guard let id = vm.messages.last?.id else { return }
         proxy.scrollTo(id, anchor: .bottomTrailing)
+    }
+    
+    private func caroucel() -> some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 20) {
+                ForEach(0..<cards.count, id: \.self) { card in
+                    GeometryReader { geometry in
+                        CardView(card: cards[card])
+                            .rotation3DEffect(Angle(degrees: (Double(geometry.frame(in: .global).minX) - 40) / -10), axis: (x: 0, y: 10.0, z: 0))
+                    }
+                    .frame(width: 246)
+                }
+            }
+            .padding()
+        }
+        .frame(width: UIScreen.main.bounds.width, height: 420)
     }
     
     func generateDiagram(code: String) {

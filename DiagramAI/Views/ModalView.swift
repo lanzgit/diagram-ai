@@ -64,7 +64,7 @@ struct ModalView: View {
                         ShareLink("Share", item: img, preview: SharePreview("photo", image: img))
                             .bold()
                             .padding()
-                            .background(.black)
+                            .background(Color("menuBack"))
                             .foregroundColor(.white)
                             .cornerRadius(32)
                     }

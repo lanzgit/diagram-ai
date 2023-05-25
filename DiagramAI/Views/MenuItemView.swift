@@ -36,7 +36,7 @@ struct MenuItem: View {
             .offset(x: isActive ? positions[order][0] : 0, y: isActive ? positions[order][1] : 0)
            Text(name)
                 .opacity(isActive ? 1 : 0)
-                .foregroundColor(.black)
+                .foregroundColor(.white)
                 .bold()
                 .rotationEffect(isActive ? .degrees(1080) : .zero)
                 .animation(.spring(response: 0.4, dampingFraction: 0.75))
@@ -60,15 +60,15 @@ struct MenuItemView: View {
                 Spacer()
                 ZStack {
                     
-                    MenuItem(icon: "figure.arms.open", background: .orange, foreground: .white, order: 1, isActive: isActive, name: "UseCase", action: {
+                    MenuItem(icon: "figure.arms.open", background: Color("myOrange"), foreground: .white, order: 1, isActive: isActive, name: "UseCase", action: {
                         
                     })
                         .opacity(isActive ? 1 : 0)
-                    MenuItem(icon: "flowchart.fill", background: .cyan, foreground: .white, order: 3, isActive: isActive, name: "Class", action: {
+                    MenuItem(icon: "flowchart.fill", background: Color("myPink"), foreground: .white, order: 3, isActive: isActive, name: "Class", action: {
                         
                     })
                         .opacity(isActive ? 1 : 0)
-                    MenuItem(icon: "figure.walk", background: .indigo, foreground: .white, order: 5, isActive: isActive, name: "Sequence", action: {
+                    MenuItem(icon: "figure.walk", background: Color("anotherGreen"), foreground: .white, order: 5, isActive: isActive, name: "Sequence", action: {
                         
                     })
                         .opacity(isActive ? 1 : 0)

@@ -15,11 +15,13 @@ struct MessageRowView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            messageRow(text: message.sendText, image: message.sendImage, bgColor: colorScheme == .light ? .white : Color(red: 52/255, green: 53/255, blue: 65/255, opacity: 0.5))
+            messageRow(text: message.sendText, image: message.sendImage, bgColor: colorScheme == .light ? Color("realceBackground").opacity(0.2) : Color(red: 52/255, green: 53/255, blue: 65/255, opacity: 0.5))
+                .foregroundColor(.white)
             
             if let text = message.responseText {
                 Divider()
-                messageRow(text: text, image: message.responseImage, bgColor: colorScheme == .light ? .gray.opacity(0.1) : Color(red: 52/255, green: 53/255, blue: 65/255, opacity: 1), responseError: message.responseError)
+                messageRow(text: text, image: message.responseImage, bgColor: colorScheme == .light ? Color("realceBackground") : Color(red: 52/255, green: 53/255, blue: 65/255, opacity: 1), responseError: message.responseError)
+                    .foregroundColor(.white)
                 Divider()
             }
         }
@@ -49,12 +51,12 @@ struct MessageRowView: View {
                 }
                 if let error = responseError {
                     Text("Error: \(error)")
-                        .foregroundColor(.red)
+                        .foregroundColor(Color("myGreen"))
                         .multilineTextAlignment(.leading)
                     Button("Refazer a Pergunta") {
                         retryCallback(message)
                     }
-                    .foregroundColor(.accentColor)
+                    .foregroundColor(Color("myPurple"))
                     .padding(.top)
                     
                     if showLoading {
@@ -67,7 +69,7 @@ struct MessageRowView: View {
         .padding(16)
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(bgColor)
-        .cornerRadius(12)
+        .cornerRadius(18)
     }
 }
 
@@ -98,6 +100,7 @@ struct MessageRowView_Previews: PreviewProvider {
             }
             .frame(width: 400)
             .previewLayout(.sizeThatFits)
+            .background(Color("myBackground"))
         }
     }
 }

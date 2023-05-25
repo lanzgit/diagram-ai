@@ -19,6 +19,8 @@
 		C3B81DAC2A0C462D00A08028 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B81DAB2A0C462D00A08028 /* SplashView.swift */; };
 		C3B81DAE2A0C510100A08028 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B81DAD2A0C510100A08028 /* UIColor.swift */; };
 		C3B81DB12A0C631D00A08028 /* UIColorHexSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C3B81DB02A0C631D00A08028 /* UIColorHexSwift */; };
+		C3C387F62A1FA4210057374B /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C387F52A1FA4210057374B /* Card.swift */; };
+		C3C387F82A1FA5500057374B /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C387F72A1FA5500057374B /* CardView.swift */; };
 		C3C3E59C2A081D0D00F4A2C7 /* ChatGPTSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C3C3E59B2A081D0D00F4A2C7 /* ChatGPTSwift */; };
 		C3C3E5A02A081E7E00F4A2C7 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C3E59F2A081E7E00F4A2C7 /* ContentViewModel.swift */; };
 		C3C3E5A22A081F5100F4A2C7 /* ChatGPTAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C3E5A12A081F5100F4A2C7 /* ChatGPTAPI.swift */; };
@@ -49,6 +51,8 @@
 		C3B589092A0718560088F043 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C3B81DAB2A0C462D00A08028 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		C3B81DAD2A0C510100A08028 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		C3C387F52A1FA4210057374B /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		C3C387F72A1FA5500057374B /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		C3C3E59F2A081E7E00F4A2C7 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		C3C3E5A12A081F5100F4A2C7 /* ChatGPTAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPTAPI.swift; sourceTree = "<group>"; };
 		C3C3E5A32A082CCE00F4A2C7 /* ChatGPTAPIModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPTAPIModels.swift; sourceTree = "<group>"; };
@@ -89,6 +93,7 @@
 				C3B1DC852A0D3156009C4C1A /* DiagramView.swift */,
 				C3FF15D42A198F1F00074A89 /* MenuItemView.swift */,
 				C3FF15D62A19C36A00074A89 /* ModalView.swift */,
+				C3C387F72A1FA5500057374B /* CardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -114,6 +119,7 @@
 				C3C3E5A32A082CCE00F4A2C7 /* ChatGPTAPIModels.swift */,
 				C3C3E5B22A09B5D200F4A2C7 /* ChatMessage.swift */,
 				C3C3E5A72A08645300F4A2C7 /* MessageRow.swift */,
+				C3C387F52A1FA4210057374B /* Card.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -290,9 +296,11 @@
 				C3C3E5B52A09D9AA00F4A2C7 /* Constants.swift in Sources */,
 				C3C3E5A42A082CCE00F4A2C7 /* ChatGPTAPIModels.swift in Sources */,
 				C3C3E5B32A09B5D200F4A2C7 /* ChatMessage.swift in Sources */,
+				C3C387F82A1FA5500057374B /* CardView.swift in Sources */,
 				C308EAF22A0750F900DF39FD /* PlantUMLEncode.swift in Sources */,
 				C3FF15D52A198F1F00074A89 /* MenuItemView.swift in Sources */,
 				C308EAF02A0741AA00DF39FD /* PlantUMLText.swift in Sources */,
+				C3C387F62A1FA4210057374B /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
