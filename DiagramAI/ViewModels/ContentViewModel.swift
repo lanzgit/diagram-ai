@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import ChatGPTSwift
 import Foundation
 
 class ContentViewModel: ObservableObject {
@@ -27,10 +26,9 @@ class ContentViewModel: ObservableObject {
         let text = inputMessage
         inputMessage = ""
         await send(text: text)
-//        await sendCode(text: text)
     }
     
-    //TODO: aprimorar
+    //TODO: aprimorar prompt
     @MainActor
     func sendBasePrompt(diagramType: String) async {
         let baseText = "As a developer, I would like you to produce markups using PlantUML to generate diagrams on http://www.plantuml.com. Please ensure that there is adequate spacing in your diagrams. Please wait for my \(diagramType) descriptions before responding. Response with code, nothing else"

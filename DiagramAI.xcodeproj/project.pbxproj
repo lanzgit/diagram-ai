@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C308EAF02A0741AA00DF39FD /* PlantUMLText.swift in Sources */ = {isa = PBXBuildFile; fileRef = C308EAEF2A0741AA00DF39FD /* PlantUMLText.swift */; };
 		C308EAF22A0750F900DF39FD /* PlantUMLEncode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C308EAF12A0750F900DF39FD /* PlantUMLEncode.swift */; };
 		C308EB022A0771ED00DF39FD /* OpenAIKit in Frameworks */ = {isa = PBXBuildFile; productRef = C308EB012A0771ED00DF39FD /* OpenAIKit */; };
 		C3B1DC862A0D3156009C4C1A /* DiagramView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B1DC852A0D3156009C4C1A /* DiagramView.swift */; };
@@ -29,7 +28,6 @@
 		C3C3E5A82A08645300F4A2C7 /* MessageRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C3E5A72A08645300F4A2C7 /* MessageRow.swift */; };
 		C3C3E5AA2A0864A900F4A2C7 /* ParserResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C3E5A92A0864A900F4A2C7 /* ParserResult.swift */; };
 		C3C3E5B02A099F4700F4A2C7 /* Markdownosaur in Frameworks */ = {isa = PBXBuildFile; productRef = C3C3E5AF2A099F4700F4A2C7 /* Markdownosaur */; };
-		C3C3E5B32A09B5D200F4A2C7 /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C3E5B22A09B5D200F4A2C7 /* ChatMessage.swift */; };
 		C3C3E5B52A09D9AA00F4A2C7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C3E5B42A09D9AA00F4A2C7 /* Constants.swift */; };
 		C3C3E5B72A09EB4200F4A2C7 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C3E5B62A09EB4200F4A2C7 /* LoadingView.swift */; };
 		C3F293AF2A1AB9D900E317C7 /* ImageSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F293AE2A1AB9D900E317C7 /* ImageSaver.swift */; };
@@ -39,7 +37,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C308EAEF2A0741AA00DF39FD /* PlantUMLText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantUMLText.swift; sourceTree = "<group>"; };
 		C308EAF12A0750F900DF39FD /* PlantUMLEncode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantUMLEncode.swift; sourceTree = "<group>"; };
 		C3B1DC852A0D3156009C4C1A /* DiagramView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagramView.swift; sourceTree = "<group>"; };
 		C3B1DC882A0D4BEA009C4C1A /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
@@ -59,7 +56,6 @@
 		C3C3E5A52A08635300F4A2C7 /* MessageRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageRowView.swift; sourceTree = "<group>"; };
 		C3C3E5A72A08645300F4A2C7 /* MessageRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageRow.swift; sourceTree = "<group>"; };
 		C3C3E5A92A0864A900F4A2C7 /* ParserResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserResult.swift; sourceTree = "<group>"; };
-		C3C3E5B22A09B5D200F4A2C7 /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
 		C3C3E5B42A09D9AA00F4A2C7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C3C3E5B62A09EB4200F4A2C7 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		C3F293AE2A1AB9D900E317C7 /* ImageSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSaver.swift; sourceTree = "<group>"; };
@@ -106,18 +102,10 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		C308EAF52A075EDD00DF39FD /* Repositories */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Repositories;
-			sourceTree = "<group>";
-		};
 		C308EAF62A075F0500DF39FD /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				C3C3E5A32A082CCE00F4A2C7 /* ChatGPTAPIModels.swift */,
-				C3C3E5B22A09B5D200F4A2C7 /* ChatMessage.swift */,
 				C3C3E5A72A08645300F4A2C7 /* MessageRow.swift */,
 				C3C387F52A1FA4210057374B /* Card.swift */,
 			);
@@ -166,14 +154,12 @@
 				C3B1DC872A0D4BB8009C4C1A /* Components */,
 				C3C3E5B12A09B57E00F4A2C7 /* Services */,
 				C308EAFA2A0768AB00DF39FD /* Domain */,
-				C308EAF52A075EDD00DF39FD /* Repositories */,
 				C308EAF42A075E9D00DF39FD /* ViewModels */,
 				C308EAF32A075E7400DF39FD /* Views */,
 				C3B589092A0718560088F043 /* Info.plist */,
 				C3B588FB2A070A9F0088F043 /* DiagramAIApp.swift */,
 				C3B588FF2A070AA00088F043 /* Assets.xcassets */,
 				C3B589012A070AA00088F043 /* Preview Content */,
-				C308EAEF2A0741AA00DF39FD /* PlantUMLText.swift */,
 			);
 			path = DiagramAI;
 			sourceTree = "<group>";
@@ -295,11 +281,9 @@
 				C3B588FC2A070A9F0088F043 /* DiagramAIApp.swift in Sources */,
 				C3C3E5B52A09D9AA00F4A2C7 /* Constants.swift in Sources */,
 				C3C3E5A42A082CCE00F4A2C7 /* ChatGPTAPIModels.swift in Sources */,
-				C3C3E5B32A09B5D200F4A2C7 /* ChatMessage.swift in Sources */,
 				C3C387F82A1FA5500057374B /* CardView.swift in Sources */,
 				C308EAF22A0750F900DF39FD /* PlantUMLEncode.swift in Sources */,
 				C3FF15D52A198F1F00074A89 /* MenuItemView.swift in Sources */,
-				C308EAF02A0741AA00DF39FD /* PlantUMLText.swift in Sources */,
 				C3C387F62A1FA4210057374B /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
