@@ -40,10 +40,11 @@ struct ModalView: View {
         VStack {
             ZStack {
                 Capsule()
-                    .frame(width: 40, height: 6)
+                    .frame(width: 50, height: 6)
                     .onTapGesture {
                         isShowingImage = false
                     }
+                    .foregroundColor(.black)
             }
             .frame(height: 40)
             .frame(maxWidth: .infinity)
@@ -55,6 +56,7 @@ struct ModalView: View {
                     Text("Diagrama")
                         .font(.system(size: 30))
                         .bold()
+                        .foregroundColor(.black)
                     if let plantUMLImage = plantUMLImage {
                         Image(uiImage: plantUMLImage)
                             .resizable()
@@ -83,7 +85,7 @@ struct ModalView: View {
                 Rectangle()
                     .frame(height: curHeight / 2)
             }
-                .foregroundColor(.white)
+            .foregroundColor(.white)
         )
     }
     

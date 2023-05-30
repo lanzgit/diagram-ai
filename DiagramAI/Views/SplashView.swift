@@ -44,7 +44,7 @@ struct SplashView: View {
                         .font(Font.custom("Menlo", size: 15))
                         .bold()
                     HStack {
-                        Image("openai")
+                        Image("openaiLogo")
                             .resizable()
                             .frame(width: 40, height: 40)
                             .cornerRadius(80)

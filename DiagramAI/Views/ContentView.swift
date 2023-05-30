@@ -17,13 +17,12 @@ struct ContentView: View {
     
     @State private var cards: Array<Card> = [Card.openaiCard, Card.plantumlCard, Card.tipos]
     @State private var isShowingCards = true
-    
     @State private var plantUMLCode: String = ""
     @State private var diagramImage: UIImage? = nil
     @State private var encodeUML = PlantUMLEncode()
     @State private var chatMessages: [ChatMessage] = ChatMessage.sampleMasseges
     @State private var messageText: String = ""
-    @State private var diagramType: DiagramType = .Usecase
+//    @State private var diagramType: DiagramType = .Usecase
     @State private var plantumlCode: String = ""
     @State private var showTextField = false
     @State private var isActive = false
@@ -155,7 +154,6 @@ struct ContentView: View {
                                 isFieldFocussed = false
                                 scrollToBottom(proxy: proxy)
                                 
-                                //                      await vm.sendTapped()
                                 let code = await vm.sendCode(text: vm.inputMessage)
                                 generateDiagram(code: code ?? "algo aconteceu de errado")
                                 vm.inputMessage = ""
@@ -171,7 +169,6 @@ struct ContentView: View {
                                     .whitespacesAndNewlines).isEmpty)
                     }
                 }
-//                .padding(.top, 80)
                 .padding()
             }
         }
@@ -205,7 +202,7 @@ struct ContentView: View {
                     .frame(width: 246)
                 }
             }
-            .padding()
+            .padding(20)
         }
         .frame(width: UIScreen.main.bounds.width, height: 420)
     }
