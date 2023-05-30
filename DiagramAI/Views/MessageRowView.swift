@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// Preview do MessageRow
 struct MessageRowView: View {
     
     @Environment(\.colorScheme) private var colorScheme

@@ -20,9 +20,7 @@ struct ContentView: View {
     @State private var plantUMLCode: String = ""
     @State private var diagramImage: UIImage? = nil
     @State private var encodeUML = PlantUMLEncode()
-    @State private var chatMessages: [ChatMessage] = ChatMessage.sampleMasseges
     @State private var messageText: String = ""
-//    @State private var diagramType: DiagramType = .Usecase
     @State private var plantumlCode: String = ""
     @State private var showTextField = false
     @State private var isActive = false
@@ -172,18 +170,6 @@ struct ContentView: View {
                 .padding()
             }
         }
-    }
-    
-    func messageView(message: ChatMessage) -> some View {
-        HStack {
-            if message.sender == .me { Spacer() }
-            Text(message.content)
-                .foregroundColor(message.sender == .me ? .white : .white)
-                .padding()
-                .background(message.sender == .me ? .blue : .gray.opacity(0.1))
-                .cornerRadius(16)
-            if message.sender == .gpt { Spacer() }
-        }.padding()
     }
     
     private func scrollToBottom(proxy: ScrollViewProxy) {
