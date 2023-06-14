@@ -153,11 +153,11 @@ class ChatGPTAPI: @unchecked Sendable {
     }
 }
 
-//extension String: CustomNSError {
-//
-//    public var errorUserInfo: [String : Any] {
-//        [
-//            NSLocalizedDescriptionKey: self
-//        ]
-//    }
-//}
+extension String: CustomNSError {
+
+    public var errorUserInfo: [String : Any] {
+        [
+            NSLocalizedDescriptionKey: self
+        ]
+    }
+}

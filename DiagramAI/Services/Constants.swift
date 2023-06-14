@@ -8,7 +8,7 @@
 import Foundation
 
 enum Constants {
-    static let openAIKey = "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"
+    static let openAIKey = "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"
 }
 
 enum DiagramType: String, CaseIterable {
