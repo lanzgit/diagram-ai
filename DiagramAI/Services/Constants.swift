@@ -7,8 +7,9 @@
 
 import Foundation
 
+//TODO: entrar com uma key valida, a openAI dropa a key em um repositorio do git publico
 enum Constants {
-    static let openAIKey = "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"
+    static let openAIKey = "OPENAI_KEY_HERE"
 }
 
 enum DiagramType: String, CaseIterable {
